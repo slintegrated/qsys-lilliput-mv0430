@@ -4,12 +4,12 @@
 
 -- Information block for the plugin
 PluginInfo = {
-  Name = "Base Plugin",
+  Name = "Lilliput MV0430",
   Version = "0.0",
-  BuildVersion = "2.0.0.2",
+  BuildVersion = "3.0.1.4",
   Id = "322cb95e-a012-430e-aefb-03f5b8f9b7db",
-  Author = "Your_Company",
-  Description = "A very basic plugin"  
+  Author = "Gage Helton",
+  Description = "Plugin to control functionality of Lilliput MV0430 multiviewer"  
 }
 
 -- Define the color of the plugin object in the design
@@ -19,7 +19,7 @@ end
 
 -- The name that will initially display when dragged into a design
 function GetPrettyName(props)
-  return "My First Plugin, version " .. PluginInfo.Version
+  return "Lilliput MV0430" --  .. PluginInfo.Version
 end
 
 -- Optional function used if plugin has multiple pages
@@ -107,6 +107,15 @@ function GetControls(props)
     PinStyle = "Input",
     Icon = "Power"
   })
+  table.insert(ctrls, {
+    Name = "TestButton",
+    ControlType = "Button",
+    ButtonType = "Momentary",
+    Count = 1,
+    UserPin = true,
+    PinStyle = "Input",
+    Icon = "Power"
+  })
   return ctrls
 end
 
@@ -139,6 +148,13 @@ function GetControlLayout(props)
       Size = {50,16},
       Color = {0,0,0}
     }
+    layout["TestButton"] = {
+      PrettyName = "Buttons~Test The Command",
+      Style = "Button",
+      Position = {205,42},
+      Size = {50,16},
+      Color = {0,0,0}
+    }
   elseif CurrentPage == "Setup" then
     -- TBD
   end
@@ -148,6 +164,13 @@ end
 --Start event based logic
 if Controls then
   Controls.SendButton.EventHandler = function()
-    print("Hello, World!")
+    print("Hello, Worlddddd!")
+    print(1+1)
+    print(2+2)
+    print("Hello, Worlddddd!")
+  end
+  
+  Controls.TestButton.EventHandler = function()
+    print("testies 12")
   end
 end

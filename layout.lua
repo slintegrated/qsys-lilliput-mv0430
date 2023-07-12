@@ -23,6 +23,13 @@ if CurrentPage == "Control" then
     Size = {50,16},
     Color = {0,0,0}
   }
+  layout["TestButton"] = {
+    PrettyName = "Buttons~Test The Command",
+    Style = "Button",
+    Position = {205,42},
+    Size = {50,16},
+    Color = {0,0,0}
+  }
 elseif CurrentPage == "Setup" then
   -- TBD
 end
