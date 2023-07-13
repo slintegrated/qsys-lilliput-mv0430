@@ -1,3 +1,15 @@
+function string.fromhex(str)
+  return (str:gsub('..', function (cc)
+      return string.char(tonumber(cc, 16))
+  end))
+end
+
+function string.tohex(str)
+  return (str:gsub('.', function (c)
+      return string.format('%02X', string.byte(c))
+  end))
+end
+
 IPAddress = "192.168.61.33"          -- Address of the UDP Communication target
 Port = 7000                        -- Port used for sending UDP Datagrams
 LocalIPAddress = "192.168.61.19"   -- Address of the Q-Sys Core
@@ -60,10 +72,9 @@ function JoinMulticast(address)
 end
 -- Use the open UDPSocket to send a UDP datagram of the string (command) to the IPAddress and Port defined
 function Send(command)
-  print(command)
   if UDPSocketOpen then
     print("Sending " .. IPAddress .. ":" .. Port .. " datagram: " .. command)  -- Print the command to be sent
-    UDP:Send(IPAddress, Port, command)  -- Write command to the UDP socket
+    UDP:Send(IPAddress, Port, string.fromhex(command))  -- Write command to the UDP socket
   else
     --If the socket is closed, open it and try again
     OpenSocket()
@@ -78,8 +89,11 @@ function Close()
 end
 -- Parsers
 -- UDP Data event is called when data is received on the port, either targeted at the local address or from a multicast network.
+
+
 UDP.Data = function(socket, packet)
   print("Address: " .. packet.Address, "Port: " .. packet.Port, "Rx: " .. packet.Data)  -- Prints data on the UDP socket
+  print(string.tohex(packet.Data))
   -- Handle response data here
 end
 --Setup the UDP sockets to be used 

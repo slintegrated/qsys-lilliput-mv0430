@@ -6,7 +6,7 @@
 PluginInfo = {
   Name = "Lilliput MV0430",
   Version = "0.0",
-  BuildVersion = "1.0.0.34",
+  BuildVersion = "2.0.0.11",
   Id = "322cb95e-a012-430e-aefb-03f5b8f9b7db",
   Author = "Gage Helton",
   Description = "Plugin to control functionality of Lilliput MV0430 multiviewer"  
@@ -61,7 +61,7 @@ LilliputCommands = {
       {0x07,"1 fullscreen | 2 pip top right"},                        --8
       {0x08,"1 fullscreen | 2 pip top left"},                         --9
       {0x09,"1 fullscreen | 2 pip bottom left"},                      --10
-      {0x0a,"1 fullscreen | 2 pip bottom right"},                     --11 
+      {0x0a,"1 fullscreen | 2 pip bottom right"},                     --11
       {0x0b,"1 on left | 2 on right"},                                --12
       {0x0c,"4 fullscreen"},                                          --13
       {0x0d,"3 fullscreen"},                                          --14
@@ -141,7 +141,6 @@ end
 
 function ByteLength(n)
   if(#n==1) then
-    print("IT EQUALS ONE " .. n)
     n = "0" .. n
   end
   return n
@@ -153,6 +152,11 @@ function CalculateChecksum(i)
   return ByteLength(string.format("%x",remainder)) .. " " .. ByteLength(string.format("%x",quotient))
 end
 
+function CalculateChecksumRaw(i)
+  local quotient = math.floor(i / 0x100)
+  local remainder = i % 0x100
+  return {remainder,quotient}
+end
 
 function BuildCommand(c,o)
   --if using the names on the right as table indexes the for loop did not consisntely loop to the same keys with each pass!
@@ -194,14 +198,21 @@ function BuildCommand(c,o)
   end
   
   chksm = chksm + data_length
+  
   command_string = command_string:gsub("DATA_LENGTH",ByteLength(string.format("%x",data_length)))
   command_string = command_string:gsub("CHECKSUM",CalculateChecksum(chksm))
-  command_string = command_string:gsub(" ","\\x")
-  return({StringTrim(command_string),LilliputCommands[c].options[o][2]})
+  --command_string = command_string:gsub(" ","\\x")
+
+  packet_structure[2][1] = data_length
+  packet_structure[9] = CalculateChecksumRaw(chksm)
+
+  return({StringTrim(command_string:gsub(" ","")),LilliputCommands[c].options[o][2]})
+
 end
 
---x = (BuildCommand('output_resolution',1))
+x = (BuildCommand('output_resolution',1))
 --print(x[1] .. "\n" .. x[2])
+--print(ToBinary(x[1]))
 
 -- Define the color of the plugin object in the design
 function GetColor(props)
@@ -257,6 +268,14 @@ end
 -- Defines the Controls used within the plugin
 function GetControls(props)
   local ctrls = {}
+  table.insert(ctrls, { 
+    Name = "InputBox",
+    ControlType = "Text",
+    Count = 1,
+    UserPin = false,
+  })
+  
+  
   table.insert(ctrls, { 
     Name = "QuadView",
     ControlType = "Button",
@@ -319,6 +338,14 @@ function GetControlLayout(props)
       Size = {500,500}
     })
   
+    
+    layout['InputBox'] = {
+      Style = "Text",
+      Position = {10,300},
+      Size = {500,16},
+      Color = {0,0,0},
+    }
+    
     layout["QuadView"] = {
       PrettyName = "Buttons~Set Layout to Quad View",
       Style = "Button",
@@ -406,6 +433,18 @@ end
 
 --Start event based logic
 if Controls then
+  function string.fromhex(str)
+    return (str:gsub('..', function (cc)
+        return string.char(tonumber(cc, 16))
+    end))
+  end
+  
+  function string.tohex(str)
+    return (str:gsub('.', function (c)
+        return string.format('%02X', string.byte(c))
+    end))
+  end
+  
   IPAddress = "192.168.61.33"          -- Address of the UDP Communication target
   Port = 7000                        -- Port used for sending UDP Datagrams
   LocalIPAddress = "192.168.61.19"   -- Address of the Q-Sys Core
@@ -470,7 +509,7 @@ if Controls then
   function Send(command)
     if UDPSocketOpen then
       print("Sending " .. IPAddress .. ":" .. Port .. " datagram: " .. command)  -- Print the command to be sent
-      UDP:Send(IPAddress, Port, command)  -- Write command to the UDP socket
+      UDP:Send(IPAddress, Port, string.fromhex(command))  -- Write command to the UDP socket
     else
       --If the socket is closed, open it and try again
       OpenSocket()
@@ -485,8 +524,11 @@ if Controls then
   end
   -- Parsers
   -- UDP Data event is called when data is received on the port, either targeted at the local address or from a multicast network.
+  
+  
   UDP.Data = function(socket, packet)
     print("Address: " .. packet.Address, "Port: " .. packet.Port, "Rx: " .. packet.Data)  -- Prints data on the UDP socket
+    print(string.tohex(packet.Data))
     -- Handle response data here
   end
   --Setup the UDP sockets to be used 
@@ -498,9 +540,12 @@ if Controls then
   -- Run at start
   Initialize()
   Controls.QuadView.EventHandler = function()
-    local command = BuildCommand("output_layout",1)
-    Send(command[1])
-    print(command[2])
+    print(Controls.InputBox.String)
+    --local command = BuildCommand("output_layout",1)
+    --Send(command[1])
+    --print(command[2])
+    Send(Controls.InputBox.String)
+  
   end
   Controls.Input1.EventHandler = function()
     local command = BuildCommand("output_layout",16)

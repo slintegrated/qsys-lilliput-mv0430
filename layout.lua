@@ -9,6 +9,14 @@ if CurrentPage == "Control" then
     Size = {500,500}
   })
 
+  
+  layout['InputBox'] = {
+    Style = "Text",
+    Position = {10,300},
+    Size = {500,16},
+    Color = {0,0,0},
+  }
+  
   layout["QuadView"] = {
     PrettyName = "Buttons~Set Layout to Quad View",
     Style = "Button",

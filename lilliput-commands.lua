@@ -48,7 +48,7 @@ LilliputCommands = {
       {0x07,"1 fullscreen | 2 pip top right"},                        --8
       {0x08,"1 fullscreen | 2 pip top left"},                         --9
       {0x09,"1 fullscreen | 2 pip bottom left"},                      --10
-      {0x0a,"1 fullscreen | 2 pip bottom right"},                     --11 
+      {0x0a,"1 fullscreen | 2 pip bottom right"},                     --11
       {0x0b,"1 on left | 2 on right"},                                --12
       {0x0c,"4 fullscreen"},                                          --13
       {0x0d,"3 fullscreen"},                                          --14
@@ -139,6 +139,12 @@ function CalculateChecksum(i)
   return ByteLength(string.format("%x",remainder)) .. " " .. ByteLength(string.format("%x",quotient))
 end
 
+function CalculateChecksumRaw(i)
+  local quotient = math.floor(i / 0x100)
+  local remainder = i % 0x100
+  return {remainder,quotient}
+end
+
 function BuildCommand(c,o)
   --if using the names on the right as table indexes the for loop did not consisntely loop to the same keys with each pass!
   --therefore an index based table was used instead with each index being a data packet
@@ -179,11 +185,18 @@ function BuildCommand(c,o)
   end
   
   chksm = chksm + data_length
+  
   command_string = command_string:gsub("DATA_LENGTH",ByteLength(string.format("%x",data_length)))
   command_string = command_string:gsub("CHECKSUM",CalculateChecksum(chksm))
-  command_string = command_string:gsub(" ","\\x")
-  return({StringTrim(command_string),LilliputCommands[c].options[o][2]})
+  --command_string = command_string:gsub(" ","\\x")
+
+  packet_structure[2][1] = data_length
+  packet_structure[9] = CalculateChecksumRaw(chksm)
+
+  return({StringTrim(command_string:gsub(" ","")),LilliputCommands[c].options[o][2]})
+
 end
 
---x = (BuildCommand('output_resolution',1))
+x = (BuildCommand('output_resolution',1))
 --print(x[1] .. "\n" .. x[2])
+--print(ToBinary(x[1]))

@@ -1,4 +1,12 @@
 table.insert(ctrls, { 
+  Name = "InputBox",
+  ControlType = "Text",
+  Count = 1,
+  UserPin = false,
+})
+
+
+table.insert(ctrls, { 
   Name = "QuadView",
   ControlType = "Button",
   ButtonType = "Momentary",
