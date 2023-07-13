@@ -61,5 +61,6 @@ end
 
 --Start event based logic
 if Controls then
+  --[[ #include "udp-socket.lua" ]]
   --[[ #include "runtime.lua" ]]
 end

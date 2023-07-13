@@ -1,6 +1,3 @@
-Lilliput = {
-}
-
 LilliputCommands = {
   scanning = {
     command = 0xff,
@@ -181,5 +178,5 @@ function BuildCommand(c,o)
   return({StringTrim(command_string),LilliputCommands[c].options[o][2]})
 end
 
-x = (BuildCommand('output_resolution',1))
-print(x[1] .. "\n" .. x[2])
+--x = (BuildCommand('output_resolution',1))
+--print(x[1] .. "\n" .. x[2])

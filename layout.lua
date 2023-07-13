@@ -16,17 +16,38 @@ if CurrentPage == "Control" then
     FontSize = 14,
     HTextAlign = "Right"
   })
-  layout["SendButton"] = {
-    PrettyName = "Buttons~Send The Command",
+  layout["QuadView"] = {
+    PrettyName = "Buttons~Set Layout to Quad View",
     Style = "Button",
     Position = {105,42},
     Size = {50,16},
     Color = {0,0,0}
   }
-  layout["TestButton"] = {
-    PrettyName = "Buttons~Test The Command",
+  layout["Input1"] = {
+    PrettyName = "Buttons~Set Layout to Quad View",
     Style = "Button",
-    Position = {205,42},
+    Position = {105,62},
+    Size = {50,16},
+    Color = {0,0,0}
+  }
+  layout["Input2"] = {
+    PrettyName = "Buttons~Set Layout to Quad View",
+    Style = "Button",
+    Position = {105,82},
+    Size = {50,16},
+    Color = {0,0,0}
+  }
+  layout["Input3"] = {
+    PrettyName = "Buttons~Set Layout to Quad View",
+    Style = "Button",
+    Position = {105,102},
+    Size = {50,16},
+    Color = {0,0,0}
+  }
+  layout["Input4"] = {
+    PrettyName = "Buttons~Set Layout to Quad View",
+    Style = "Button",
+    Position = {105,122},
     Size = {50,16},
     Color = {0,0,0}
   }
