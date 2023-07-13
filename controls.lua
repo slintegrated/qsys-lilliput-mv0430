@@ -5,7 +5,6 @@ table.insert(ctrls, {
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
-  Icon = "Power"
 })
 table.insert(ctrls, { 
   Name = "Input1",
