@@ -1,10 +1,21 @@
-Controls.QuadView.EventHandler = function()
-  print(Controls.InputBox.String)
-  --local command = BuildCommand("output_layout",1)
-  --Send(command[1])
-  --print(command[2])
-  Send(Controls.InputBox.String)
+function DeviceSetup()
+  print("setting up device")
+  IPAddress = Controls.DeviceIp.String
+  Port = tonumber(Controls.DevicePort.String)
+end
 
+Controls.DeviceIp.EventHandler = function()
+  DeviceSetup()
+end
+
+Controls.DevicePort.EventHandler = function()
+  DeviceSetup()
+end
+
+Controls.QuadView.EventHandler = function()
+  local command = BuildCommand("output_layout",1)
+  Send(command[1])
+  print(command[2])
 end
 Controls.Input1.EventHandler = function()
   local command = BuildCommand("output_layout",16)
@@ -23,6 +34,12 @@ Controls.Input3.EventHandler = function()
 end
 Controls.Input4.EventHandler = function()
   local command = BuildCommand("output_layout",13)
+  Send(command[1])
+  print(command[2])
+end
+
+Controls.GetInfo.EventHandler = function()
+  local command = BuildCommand("reading_all_the_data",1)
   Send(command[1])
   print(command[2])
 end

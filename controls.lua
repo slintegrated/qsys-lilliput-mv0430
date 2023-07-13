@@ -1,10 +1,25 @@
 table.insert(ctrls, { 
-  Name = "InputBox",
+  Name = "DeviceIp",
   ControlType = "Text",
   Count = 1,
   UserPin = false,
 })
-
+table.insert(ctrls, { 
+  Name = "DevicePort",
+  ControlType = "Text",
+  Count = 1,
+  UserPin = false,
+  DefaultValue = "7000"
+})
+table.insert(ctrls, {
+  Name = "Interface",
+  ControlType = "Text",
+  TextType = "List Box",
+  Count = 1,
+  UserPin = false,
+  DefaultValue = "LAN A",
+  Choices = {"LAN A","LAN B"}
+})
 
 table.insert(ctrls, { 
   Name = "QuadView",
@@ -21,7 +36,6 @@ table.insert(ctrls, {
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
-  Icon = "Power"
 })
 table.insert(ctrls, { 
   Name = "Input2",
@@ -30,7 +44,6 @@ table.insert(ctrls, {
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
-  Icon = "Power"
 })
 table.insert(ctrls, { 
   Name = "Input3",
@@ -39,7 +52,6 @@ table.insert(ctrls, {
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
-  Icon = "Power"
 })
 table.insert(ctrls, { 
   Name = "Input4",
@@ -48,5 +60,15 @@ table.insert(ctrls, {
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
-  Icon = "Power"
+  --Icon = "Power"
+})
+
+table.insert(ctrls, { 
+  Name = "GetInfo",
+  ControlType = "Button",
+  ButtonType = "Momentary",
+  Count = 1,
+  UserPin = true,
+  PinStyle = "Input",
+  --Icon = "Power"
 })

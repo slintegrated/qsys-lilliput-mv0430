@@ -10,12 +10,32 @@ function string.tohex(str)
   end))
 end
 
-IPAddress = "192.168.61.33"          -- Address of the UDP Communication target
-Port = 7000                        -- Port used for sending UDP Datagrams
-LocalIPAddress = "192.168.61.19"   -- Address of the Q-Sys Core
-LocalPort = 10001                  -- Socket to use on the Q-Sys Core for communication
-LocalNICName = "LAN A"             -- Name of the Network Interface (NIC) to use on the Q-Sys Core
-MulticastAddress = "224.0.23.175"  -- Multicast address to subscribe to for UDP datagrams
+function GetIp()
+  local ni = Network.Interfaces()
+
+  for _, item in ipairs(ni) do
+    print(item.Interface)
+    if(item.Interface == "LAN A" or item.Interface == "LAN B") then
+        if(item.Interface == Controls.Interface.String) then
+          print("Returning Address: " .. item.Address)
+          return item.Address
+        end
+      else if(item.Interface == "Ethernet") then
+        print("Returning Address: " .. item.Address)
+        return item.Address
+      end
+    end
+    --print("-"..item.Interface, " = \n IP ", item.Address,"\n MAC",item.MACAddress,"\n Broadcast",
+    --item.BroadcastAddress,"\n Gateway",item.Gateway,"\n Netmask",item.Netmask)
+  end
+end
+
+IPAddress = Controls.DeviceIp.String          -- Address of the UDP Communication target
+Port = tonumber(Controls.DevicePort.String)   -- Port used for sending UDP Datagrams
+LocalIPAddress = GetIp()                      -- Address of the Q-Sys Core
+LocalPort = 10001                             -- Socket to use on the Q-Sys Core for communication
+LocalNICName = "LAN A"                        -- Name of the Network Interface (NIC) to use on the Q-Sys Core
+MulticastAddress = "224.0.23.175"             -- Multicast address to subscribe to for UDP datagrams
 -- Sockets
 UDP = UdpSocket.New()  -- Create new UdpSocket object
 UDPSocketOpen = false
@@ -92,8 +112,7 @@ end
 
 
 UDP.Data = function(socket, packet)
-  print("Address: " .. packet.Address, "Port: " .. packet.Port, "Rx: " .. packet.Data)  -- Prints data on the UDP socket
-  print(string.tohex(packet.Data))
+  print("Address: " .. packet.Address, "Port: " .. packet.Port, "Rx: " .. string.tohex(packet.Data))  -- Prints data on the UDP socket
   -- Handle response data here
 end
 --Setup the UDP sockets to be used 

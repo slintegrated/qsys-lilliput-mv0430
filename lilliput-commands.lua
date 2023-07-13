@@ -5,7 +5,7 @@ LilliputCommands = {
   },
   reading_all_the_data = {
     command = 0x90,
-    options = {}
+    options = {{}}
   },
   rename_the_device = {
     command = 0x91,
@@ -188,15 +188,13 @@ function BuildCommand(c,o)
   
   command_string = command_string:gsub("DATA_LENGTH",ByteLength(string.format("%x",data_length)))
   command_string = command_string:gsub("CHECKSUM",CalculateChecksum(chksm))
-  --command_string = command_string:gsub(" ","\\x")
 
-  packet_structure[2][1] = data_length
-  packet_structure[9] = CalculateChecksumRaw(chksm)
+  --packet_structure[2][1] = data_length
+  --packet_structure[9] = CalculateChecksumRaw(chksm)
 
   return({StringTrim(command_string:gsub(" ","")),LilliputCommands[c].options[o][2]})
 
 end
 
-x = (BuildCommand('output_resolution',1))
+--x = (BuildCommand('reading_all_the_data',1))
 --print(x[1] .. "\n" .. x[2])
---print(ToBinary(x[1]))
