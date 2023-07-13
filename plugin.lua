@@ -4,6 +4,7 @@
 
 -- Information block for the plugin
 --[[ #include "info.lua" ]]
+--[[ #include "lilliput-commands.lua" ]]
 
 -- Define the color of the plugin object in the design
 function GetColor(props)
@@ -37,31 +38,10 @@ function GetProperties()
   return props
 end
 
--- Optional function to define pins on the plugin that are not connected to a Control
-function GetPins(props)
-  local pins = {}
-  --[[ #include "pins.lua" ]]
-  return pins
-end
-
 -- Optional function to update available properties when properties are altered by the user
 function RectifyProperties(props)
   --[[ #include "rectify_properties.lua" ]]
   return props
-end
-
--- Optional function to define components used within the plugin
-function GetComponents(props)
-  local components = {}
-  --[[ #include "components.lua" ]]
-  return components
-end
-
--- Optional function to define wiring of components used within the plugin
-function GetWiring(props)
-  local wiring = {}
-  --[[ #include "wiring.lua" ]]
-  return wiring
 end
 
 -- Defines the Controls used within the plugin

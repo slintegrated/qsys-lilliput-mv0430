@@ -7,6 +7,7 @@ table.insert(ctrls, {
   PinStyle = "Input",
   Icon = "Power"
 })
+
 table.insert(ctrls, {
   Name = "TestButton",
   ControlType = "Button",
