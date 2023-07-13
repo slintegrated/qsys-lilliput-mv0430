@@ -126,10 +126,17 @@ function StringTrim(s)
   return s:match'^%s*(.*)'
 end
 
+function ByteLength(n)
+  if(#n==1) then
+    n = "0" .. n
+  end
+  return n
+end
+
 function CalculateChecksum(i)
   local quotient = math.floor(i / 0x100)
   local remainder = i % 0x100
-  return string.format("%x",remainder) .. " " .. string.format("%x",quotient)
+  return ByteLength(string.format("%x",remainder)) .. " " .. ByteLength(string.format("%x",quotient))
 end
 
 function BuildCommand(c,o)
@@ -155,14 +162,14 @@ function BuildCommand(c,o)
   --create output string
   for k,v in pairs(packet_structure) do
     if(k==2) then --3rd and 4th bytes are data length - they're in the second section of bytes
-      command_string = command_string .. " DATA_LENGTH 0"
+      command_string = command_string .. " DATA_LENGTH 00"
       data_length = data_length + 2
     elseif (k==9) then
       command_string = command_string .. " CHECKSUM"
       data_length = data_length + 2
     else
       for i=1, #v do
-        command_string = command_string .. " " .. string.format("%x",v[i])
+        command_string = command_string .. " " .. ByteLength(string.format("%x",v[i]))
         data_length = data_length + 1
         if(k<10) then
           chksm = chksm + v[i]
@@ -172,9 +179,9 @@ function BuildCommand(c,o)
   end
   
   chksm = chksm + data_length
-  command_string = command_string:gsub("DATA_LENGTH",string.format("%x",data_length))
+  command_string = command_string:gsub("DATA_LENGTH",ByteLength(string.format("%x",data_length)))
   command_string = command_string:gsub("CHECKSUM",CalculateChecksum(chksm))
-  
+  command_string = command_string:gsub(" ","\\x")
   return({StringTrim(command_string),LilliputCommands[c].options[o][2]})
 end
 

@@ -1,5 +1,5 @@
-IPAddress = "192.168.61.32"          -- Address of the UDP Communication target
-Port = 2468                        -- Port used for sending UDP Datagrams
+IPAddress = "192.168.61.33"          -- Address of the UDP Communication target
+Port = 7000                        -- Port used for sending UDP Datagrams
 LocalIPAddress = "192.168.61.19"   -- Address of the Q-Sys Core
 LocalPort = 10001                  -- Socket to use on the Q-Sys Core for communication
 LocalNICName = "LAN A"             -- Name of the Network Interface (NIC) to use on the Q-Sys Core
@@ -60,6 +60,7 @@ function JoinMulticast(address)
 end
 -- Use the open UDPSocket to send a UDP datagram of the string (command) to the IPAddress and Port defined
 function Send(command)
+  print(command)
   if UDPSocketOpen then
     print("Sending " .. IPAddress .. ":" .. Port .. " datagram: " .. command)  -- Print the command to be sent
     UDP:Send(IPAddress, Port, command)  -- Write command to the UDP socket
