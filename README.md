@@ -3,7 +3,7 @@
 This plugin gives UDP control of the Lilliput MV0430 Multiviewer in lua via QSYS control systems. The end goal is to have all available API functions accessible via the plugin, but the first few versions will focus on output layout changes and OSD changes.
 
 ## Command Structure
-* See [a relative link](other_file.md) and [Lilliput API]("https://github.com/slintegrated/qsys-lilliput-mv0430/lilliput_api.pdf")
+* See [lilliput commands](lilliput-commands.lua) and [Lilliput API]("https://github.com/slintegrated/qsys-lilliput-mv0430/lilliput_api.pdf")
 
 ## Versions
 ### 0.1
