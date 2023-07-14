@@ -1,32 +1,18 @@
-# BasePlugin
+# Lilliput MV0430 QSYS Plugin
+## Overview
+This plugin gives UDP control of the Lilliput MV0430 Multiviewer in lua via QSYS control systems. The end goal is to have all available API functions accessible via the plugin, but the first few versions will focus on output layout changes and OSD changes.
 
-This is a template plugin that you can download with some pre-written Lua code to get you started.
+## Command Structure
+* See [lilliput-commands.lua]("lilliput-commands.lua") and [Lilliput API]("lilliput_api.pdf")
 
-## PluginCompile
-
-This is a submodule built for VS Code. Please note it is not intended to be used for any other source code editors.
-
-The submodule will take the individual source Lua files in your local repo, compile them into a singular qplug file, and auto increment the desired octet of the BuildVersion.
-For first time builds, it will auto-generate an UUID for you plugin as well.
-
-Make sure to map a keyboard shortcut by navigating to File>Preferences>Keyboard Shortcuts. Type in "Tasks" and assign the desired shortcut to the Tasks: Run Build Task command
-
-### Build Arguments
-
-< ver_maj > : increments the first octet of BuildVersion to denote a major version change
-
-< ver_min > : increments the second octet of BuildVersion to denote a minor version change
-
-< ver_fix > : increments the third octet of BuildVersion to denote a bugfix
-
-< ver_dev > : increments the fourth octet of BuildVersion to denote a new development version
-
-< CANCEL > : cancels the build process
-  
-Please note that the public version (PluginVersion) only displays first and second octet. The second octets are intended for developer use and version tracking.
-
-## Support
-
-If you have any questions or concerns with this template, please contact qsyscontrolfeedback@qsc.com
-
-Please note that QSC does not support plugins authored by third party developers or companies.
+## Versions
+### 0.1
+* Features
+  * Output layout functions
+    * Quad View
+    * Input 1-4 Fullscreen
+    * Successful UDP communication
+* Known Issues
+  * Cannot select LAN interface from settings menu (default is LAN A)
+  * UI is suboptimal...
+  * No feedback parsing from sent commands
