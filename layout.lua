@@ -2,7 +2,7 @@ local CurrentPage = PageNames[props["page_index"].Value]
 
 local ButtonYStart = 62
 local ButtonYOffset = 25
-local TextXStart = 20
+local TextXStart = 10
 local TextXOffset = 100
 local ButtonXStart = TextXStart + TextXOffset
 local ButtonSize = {50,16}
@@ -37,33 +37,8 @@ if CurrentPage == "Control" then
   --local y = ButtonYPosition()
   table.insert(graphics,{
     Type = "Text",
-    Text = "Quad View",
-    Position = {TextXStart,ButtonYStart},
-    Size = TextBoxSize,
-    FontSize = 14,
-    Color = TextFontColor,
-    HTextAlign = "Right"
-  })
-  layout["QuadView"] = {
-    PrettyName = "Buttons~Set Layout to Quad View",
-    Style = "Trigger",
-    Position = {ButtonXStart,ButtonYStart},
-    Size = ButtonSize,
-    Color = {0,0,0}
-  }
-  layout["QuadViewLed"] = {
-    PrettyName = "LED",
-    Style = "Led",
-    Position = {LedXStart,ButtonYStart+LedYOffset},
-    Size = LedSize,
-    Color = LedColor
-  }
-
-  local y = ButtonYPosition()
-  table.insert(graphics,{
-    Type = "Text",
     Text = "Input 1",
-    Position = {TextXStart,y},
+    Position = {TextXStart,ButtonYStart},
     Size = TextBoxSize,
     FontSize = 14,
     Color = TextFontColor,
@@ -72,14 +47,14 @@ if CurrentPage == "Control" then
   layout["Input1"] = {
     PrettyName = "Buttons~Set Layout to Input 1",
     Style = "Trigger",
-    Position = {ButtonXStart,y},
+    Position = {ButtonXStart,ButtonYStart},
     Size = ButtonSize,
     Color = {0,0,0}
   }
   layout["Input1Led"] = {
-    PrettyName = "LED",
+    PrettyName = "Input1Led",
     Style = "Led",
-    Position = {LedXStart,y+LedYOffset},
+    Position = {LedXStart,ButtonYStart+LedYOffset},
     Size = LedSize,
     Color = LedColor
   }
@@ -102,7 +77,7 @@ if CurrentPage == "Control" then
     Color = {0,0,0}
   }
   layout["Input2Led"] = {
-    PrettyName = "LED",
+    PrettyName = "Input2Led",
     Style = "Led",
     Position = {LedXStart,y+LedYOffset},
     Size = LedSize,
@@ -127,7 +102,7 @@ if CurrentPage == "Control" then
     Color = {0,0,0}
   }
   layout["Input3Led"] = {
-    PrettyName = "LED",
+    PrettyName = "Input3Led",
     Style = "Led",
     Position = {LedXStart,y+LedYOffset},
     Size = LedSize,
@@ -152,7 +127,32 @@ if CurrentPage == "Control" then
     Color = {0,0,0}
   }
   layout["Input4Led"] = {
-    PrettyName = "LED",
+    PrettyName = "Input4Led",
+    Style = "Led",
+    Position = {LedXStart,y+LedYOffset},
+    Size = LedSize,
+    Color = LedColor
+  }
+
+  local y = ButtonYPosition()
+  table.insert(graphics,{
+    Type = "Text",
+    Text = "Quad View",
+    Position = {TextXStart,y},
+    Size = TextBoxSize,
+    FontSize = 14,
+    Color = TextFontColor,
+    HTextAlign = "Right"
+  })
+  layout["QuadView"] = {
+    PrettyName = "Buttons~Set Layout to Quad View",
+    Style = "Trigger",
+    Position = {ButtonXStart,y},
+    Size = ButtonSize,
+    Color = {0,0,0}
+  }
+  layout["QuadViewLed"] = {
+    PrettyName = "QuadViewLed",
     Style = "Led",
     Position = {LedXStart,y+LedYOffset},
     Size = LedSize,
