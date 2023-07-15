@@ -6,7 +6,7 @@
 PluginInfo = {
   Name = "Lilliput MV0430",
   Version = "0.1",
-  BuildVersion = "0.1.0.0",
+  BuildVersion = "0.1.0.56",
   Id = "322cb95e-a012-430e-aefb-03f5b8f9b7db",
   Author = "Gage Helton",
   Description = "Plugin to control functionality of Lilliput MV0430 multiviewer"  
@@ -340,126 +340,253 @@ function GetControls(props)
     PinStyle = "Input",
     --Icon = "Power"
   })
+  
+  table.insert(ctrls,{
+    Name = "QuadViewLed",
+    ControlType = "Indicator",
+    IndicatorType = "Led",
+    UserPin = true,
+    PinStyle = "Output",
+    Count = 1
+  })
+  table.insert(ctrls,{
+    Name = "Input1Led",
+    ControlType = "Indicator",
+    IndicatorType = "Led",
+    UserPin = true,
+    PinStyle = "Output",
+    Count = 1
+  })
+  table.insert(ctrls,{
+    Name = "Input2Led",
+    ControlType = "Indicator",
+    IndicatorType = "Led",
+    UserPin = true,
+    PinStyle = "Output",
+    Count = 1
+  })
+  table.insert(ctrls,{
+    Name = "Input3Led",
+    ControlType = "Indicator",
+    IndicatorType = "Led",
+    UserPin = true,
+    PinStyle = "Output",
+    Count = 1
+  })
+  table.insert(ctrls,{
+    Name = "Input4Led",
+    ControlType = "Indicator",
+    IndicatorType = "Led",
+    UserPin = true,
+    PinStyle = "Output",
+    Count = 1
+  })
   return ctrls
 end
+
+Images = {
+  --["background"] =  "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NTAgNTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBsZXR0ZXItc3BhY2luZzogLS4wOGVtOwogICAgICB9CgogICAgICAuY2xzLTIsIC5jbHMtMyB7CiAgICAgICAgZmlsbDogI2YzYWY0ZTsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTQgewogICAgICAgIGZvbnQtZmFtaWx5OiBNeXJpYWRQcm8tUmVndWxhciwgJ015cmlhZCBQcm8nOwogICAgICAgIGZvbnQtc2l6ZTogMjVweDsKICAgICAgfQoKICAgICAgLmNscy01IHsKICAgICAgICBzdHJva2U6ICNmM2FmNGU7CiAgICAgIH0KCiAgICAgIC5jbHMtNSwgLmNscy02IHsKICAgICAgICBmaWxsOiBub25lOwogICAgICAgIHN0cm9rZS1taXRlcmxpbWl0OiAxMDsKICAgICAgICBzdHJva2Utd2lkdGg6IDNweDsKICAgICAgfQoKICAgICAgLmNscy03LCAuY2xzLTQgewogICAgICAgIGZpbGw6ICMxNzRlNTE7CiAgICAgIH0KCiAgICAgIC5jbHMtOCB7CiAgICAgICAgbGV0dGVyLXNwYWNpbmc6IC0uMDRlbTsKICAgICAgfQoKICAgICAgLmNscy02IHsKICAgICAgICBzdHJva2U6ICMxNzRlNTE7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxnIGlkPSJCQUNLR1JPVU5EIj4KICAgIDxnPgogICAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTMiIHBvaW50cz0iMS41IDQ5OC41IDEuNSAxLjUgMzk3LjEyIDEuNSA0OS4yMiA0OTguNSAxLjUgNDk4LjUiLz4KICAgICAgPHBhdGggY2xhc3M9ImNscy03IiBkPSJtMzk0LjI0LDNMNDguNDQsNDk3SDNWM2gzOTEuMjRtNS43Ni0zSDB2NTAwaDUwTDQwMCwwaDBaIi8+CiAgICA8L2c+CiAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTciIHBvaW50cz0iNDUwIDAgNDUwIDUwMCA1MCA1MDAgNDAwIDAgNDUwIDAiLz4KICAgIDxsaW5lIGNsYXNzPSJjbHMtNSIgeDE9IjgzLjkzIiB5MT0iNDQxLjUzIiB4Mj0iNDUwIiB5Mj0iNDQxLjUzIi8+CiAgICA8bGluZSBjbGFzcz0iY2xzLTYiIHgxPSIxLjU2IiB5MT0iNTguNTUiIHgyPSIzNTcuNTYiIHkyPSI1OC41NSIvPgogIDwvZz4KICA8ZyBpZD0iVEVYVCI+CiAgICA8dGV4dCBjbGFzcz0iY2xzLTQiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQxLjc0IDQwLjMxKSI+PHRzcGFuIHg9IjAiIHk9IjAiPk1WMDQzMCAtIE9VVFBVVCBMPC90c3Bhbj48dHNwYW4gY2xhc3M9ImNscy0xIiB4PSIyMDguNDUiIHk9IjAiPkE8L3RzcGFuPjx0c3BhbiBjbGFzcz0iY2xzLTgiIHg9IjIyMS43NyIgeT0iMCI+WTwvdHNwYW4+PHRzcGFuIHg9IjIzNC40IiB5PSIwIj5PVVQ8L3RzcGFuPjwvdGV4dD4KICAgIDx0ZXh0IGNsYXNzPSJjbHMtMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoODUuOCA0NzkuMDIpIj48dHNwYW4geD0iMCIgeT0iMCI+SVAgQUREUkVTUzwvdHNwYW4+PC90ZXh0PgogIDwvZz4KPC9zdmc+",
+  ["background"] =  "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0NTAgNTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBsZXR0ZXItc3BhY2luZzogLS4wOGVtOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIHN0cm9rZTogI2UxYWU1NDsKICAgICAgfQoKICAgICAgLmNscy0yLCAuY2xzLTMgewogICAgICAgIGZpbGw6IG5vbmU7CiAgICAgICAgc3Ryb2tlLW1pdGVybGltaXQ6IDEwOwogICAgICAgIHN0cm9rZS13aWR0aDogM3B4OwogICAgICB9CgogICAgICAuY2xzLTQgewogICAgICAgIGZpbGw6ICM2ZjhjNzY7CiAgICAgIH0KCiAgICAgIC5jbHMtMyB7CiAgICAgICAgc3Ryb2tlOiAjNmY4Yzc2OwogICAgICB9CgogICAgICAuY2xzLTUgewogICAgICAgIGZpbGw6ICMyNzI1MjU7CiAgICAgICAgZm9udC1mYW1pbHk6IE15cmlhZFByby1SZWd1bGFyLCAnTXlyaWFkIFBybyc7CiAgICAgICAgZm9udC1zaXplOiAyNXB4OwogICAgICB9CgogICAgICAuY2xzLTYgewogICAgICAgIGxldHRlci1zcGFjaW5nOiAtLjA0ZW07CiAgICAgIH0KCiAgICAgIC5jbHMtNyB7CiAgICAgICAgZmlsbDogI2UxYWU1NTsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkJBQ0tHUk9VTkQiPgogICAgPGc+CiAgICAgIDxwb2x5Z29uIGNsYXNzPSJjbHMtNyIgcG9pbnRzPSIzIDQ5NyAzIDMgMzk0LjI0IDMgNDguNDQgNDk3IDMgNDk3Ii8+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTM4OC40OCw2TDQ2Ljg4LDQ5NEg2VjZoMzgyLjQ4bTExLjUyLTZIMHY1MDBoNTBMNDAwLDBoMFoiLz4KICAgIDwvZz4KICAgIDxnPgogICAgICA8cG9seWdvbiBjbGFzcz0iY2xzLTQiIHBvaW50cz0iNTMuODQgNDk4IDQwMS4wNCAyIDQ0OCAyIDQ0OCA0OTggNTMuODQgNDk4Ii8+CiAgICAgIDxwYXRoIGNsYXNzPSJjbHMtNCIgZD0ibTQ0Niw0djQ5Mkg1Ny42OEw0MDIuMDgsNGg0My45Mm00LTRoLTUwTDUwLDUwMGg0MDBWMGgwWiIvPgogICAgPC9nPgogICAgPGxpbmUgY2xhc3M9ImNscy0yIiB4MT0iODMuMzYiIHkxPSI0NDEuNTMiIHgyPSI0NTAiIHkyPSI0NDEuNTMiLz4KICAgIDxsaW5lIGNsYXNzPSJjbHMtMyIgeDE9IjEuNTYiIHkxPSI1OC41NSIgeDI9IjM1Ny41NiIgeTI9IjU4LjU1Ii8+CiAgPC9nPgogIDxnIGlkPSJURVhUIj4KICAgIDx0ZXh0IGNsYXNzPSJjbHMtNSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNDEuNzQgNDAuMzEpIj48dHNwYW4geD0iMCIgeT0iMCI+TVYwNDMwIC0gT1VUUFVUIEw8L3RzcGFuPjx0c3BhbiBjbGFzcz0iY2xzLTEiIHg9IjIwOC40NSIgeT0iMCI+QTwvdHNwYW4+PHRzcGFuIGNsYXNzPSJjbHMtNiIgeD0iMjIxLjc3IiB5PSIwIj5ZPC90c3Bhbj48dHNwYW4geD0iMjM0LjQiIHk9IjAiPk9VVDwvdHNwYW4+PC90ZXh0PgogICAgPHRleHQgY2xhc3M9ImNscy01IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg4NS44IDQ3OS4wMikiPjx0c3BhbiB4PSIwIiB5PSIwIj5JUCBBRERSRVNTPC90c3Bhbj48L3RleHQ+CiAgPC9nPgo8L3N2Zz4=",
+  ["quad"] =        "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjIgOTIiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEgewogICAgICAgIGZpbGw6ICMzZDNkM2Q7CiAgICAgICAgc3Ryb2tlOiAjZmZmOwogICAgICAgIHN0cm9rZS1taXRlcmxpbWl0OiAxMDsKICAgICAgICBzdHJva2Utd2lkdGg6IDJweDsKICAgICAgfQoKICAgICAgLmNscy0yIHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICAgIGZvbnQtZmFtaWx5OiBNeXJpYWRQcm8tUmVndWxhciwgJ015cmlhZCBQcm8nOwogICAgICAgIGZvbnQtc2l6ZTogMzBweDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkJVVFRPTlMiPgogICAgPHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxIiB5PSIxIiB3aWR0aD0iODAiIGhlaWdodD0iNDUiLz4KICAgIDx0ZXh0IGNsYXNzPSJjbHMtMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMzMuMzEgMzIuMykiPjx0c3BhbiB4PSIwIiB5PSIwIj4xPC90c3Bhbj48L3RleHQ+CiAgICA8cmVjdCBjbGFzcz0iY2xzLTEiIHg9IjgxIiB5PSIxIiB3aWR0aD0iODAiIGhlaWdodD0iNDUiLz4KICAgIDx0ZXh0IGNsYXNzPSJjbHMtMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTEzLjMxIDMyLjMpIj48dHNwYW4geD0iMCIgeT0iMCI+MjwvdHNwYW4+PC90ZXh0PgogICAgPHJlY3QgY2xhc3M9ImNscy0xIiB4PSIxIiB5PSI0NiIgd2lkdGg9IjgwIiBoZWlnaHQ9IjQ1Ii8+CiAgICA8dGV4dCBjbGFzcz0iY2xzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDMzLjMxIDc3LjMpIj48dHNwYW4geD0iMCIgeT0iMCI+MzwvdHNwYW4+PC90ZXh0PgogICAgPHJlY3QgY2xhc3M9ImNscy0xIiB4PSI4MSIgeT0iNDYiIHdpZHRoPSI4MCIgaGVpZ2h0PSI0NSIvPgogICAgPHRleHQgY2xhc3M9ImNscy0yIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgxMTMuMzEgNzcuMykiPjx0c3BhbiB4PSIwIiB5PSIwIj40PC90c3Bhbj48L3RleHQ+CiAgPC9nPgo8L3N2Zz4=",
+  ["input_1"] =     "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjQgOTQiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEsIC5jbHMtMiB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgfQoKICAgICAgLmNscy0zIHsKICAgICAgICBmaWxsOiAjM2QzZDNkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZvbnQtZmFtaWx5OiBNeXJpYWRQcm8tUmVndWxhciwgJ015cmlhZCBQcm8nOwogICAgICAgIGZvbnQtc2l6ZTogNTBweDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkJVVFRPTlMiPgogICAgPGc+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMSIgeT0iMSIgd2lkdGg9IjE2MiIgaGVpZ2h0PSI5MiIvPgogICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im0xNjIsMnY5MEgyVjJoMTYwbTItMkgwdjk0aDE2NFYwaDBaIi8+CiAgICA8L2c+CiAgICA8dGV4dCBjbGFzcz0iY2xzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY5LjE4IDYxLjY3KSI+PHRzcGFuIHg9IjAiIHk9IjAiPjE8L3RzcGFuPjwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==",
+  ["input_2"] =     "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjQgOTQiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEsIC5jbHMtMiB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgfQoKICAgICAgLmNscy0zIHsKICAgICAgICBmaWxsOiAjM2QzZDNkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZvbnQtZmFtaWx5OiBNeXJpYWRQcm8tUmVndWxhciwgJ015cmlhZCBQcm8nOwogICAgICAgIGZvbnQtc2l6ZTogNTBweDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkJVVFRPTlMiPgogICAgPGc+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMSIgeT0iMSIgd2lkdGg9IjE2MiIgaGVpZ2h0PSI5MiIvPgogICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im0xNjIsMnY5MEgyVjJoMTYwbTItMkgwdjk0aDE2NFYwaDBaIi8+CiAgICA8L2c+CiAgICA8dGV4dCBjbGFzcz0iY2xzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY5LjE4IDYxLjY3KSI+PHRzcGFuIHg9IjAiIHk9IjAiPjI8L3RzcGFuPjwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==",
+  ["input_3"] =     "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjQgOTQiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEsIC5jbHMtMiB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgfQoKICAgICAgLmNscy0zIHsKICAgICAgICBmaWxsOiAjM2QzZDNkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZvbnQtZmFtaWx5OiBNeXJpYWRQcm8tUmVndWxhciwgJ015cmlhZCBQcm8nOwogICAgICAgIGZvbnQtc2l6ZTogNTBweDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkJVVFRPTlMiPgogICAgPGc+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMSIgeT0iMSIgd2lkdGg9IjE2MiIgaGVpZ2h0PSI5MiIvPgogICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im0xNjIsMnY5MEgyVjJoMTYwbTItMkgwdjk0aDE2NFYwaDBaIi8+CiAgICA8L2c+CiAgICA8dGV4dCBjbGFzcz0iY2xzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY5LjE4IDYxLjY4KSI+PHRzcGFuIHg9IjAiIHk9IjAiPjM8L3RzcGFuPjwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==",
+  ["input_4"] =     "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMiIgZGF0YS1uYW1lPSJMYXllciAyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxNjQgOTQiPgogIDxkZWZzPgogICAgPHN0eWxlPgogICAgICAuY2xzLTEsIC5jbHMtMiB7CiAgICAgICAgZmlsbDogI2ZmZjsKICAgICAgfQoKICAgICAgLmNscy0zIHsKICAgICAgICBmaWxsOiAjM2QzZDNkOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZvbnQtZmFtaWx5OiBNeXJpYWRQcm8tUmVndWxhciwgJ015cmlhZCBQcm8nOwogICAgICAgIGZvbnQtc2l6ZTogNTBweDsKICAgICAgfQogICAgPC9zdHlsZT4KICA8L2RlZnM+CiAgPGcgaWQ9IkJVVFRPTlMiPgogICAgPGc+CiAgICAgIDxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iMSIgeT0iMSIgd2lkdGg9IjE2MiIgaGVpZ2h0PSI5MiIvPgogICAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im0xNjIsMnY5MEgyVjJoMTYwbTItMkgwdjk0aDE2NFYwaDBaIi8+CiAgICA8L2c+CiAgICA8dGV4dCBjbGFzcz0iY2xzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY5LjE4IDYxLjY4KSI+PHRzcGFuIHg9IjAiIHk9IjAiPjQ8L3RzcGFuPjwvdGV4dD4KICA8L2c+Cjwvc3ZnPg==",
+}
 
 --Layout of controls and graphics for the plugin UI to display
 function GetControlLayout(props)
   local layout = {}
   local graphics = {}
   local CurrentPage = PageNames[props["page_index"].Value]
+  
+  local ButtonYStart = 62
+  local ButtonYOffset = 25
+  local TextXStart = 20
+  local TextXOffset = 100
+  local ButtonXStart = TextXStart + TextXOffset
+  local ButtonSize = {50,16}
+  local TextBoxSize = {90,16}
+  local TextFontColor = {0,0,0}
+  local LedColor = {225,174,85}
+  local LedOffset = 60
+  local LedSize = {16,16}
+  local LedXStart = ButtonXStart + LedOffset
+  local LedYOffset = 0
+  
+  function ButtonYPosition()
+    ButtonYStart = ButtonYStart + ButtonYOffset
+    return ButtonYStart
+  end
+  
   if CurrentPage == "Control" then
     table.insert(graphics,{
       Type = "GroupBox",
       Fill = {200,200,200},
-      StrokeWidth = 1,
+      StrokeWidth = 0,
       Position = {5,5},
-      Size = {200,500}
+      Size = {225,250}
     })
-    --[[table.insert(graphics,{
+    table.insert(graphics,{
       Type = "Svg",
-      Image = "PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgZGF0YS1uYW1lPSJMYXllciAxIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj4KICA8ZGVmcz4KICAgIDxzdHlsZT4KICAgICAgLmNscy0xIHsKICAgICAgICBmaWxsOiAjZmZmOwogICAgICB9CgogICAgICAuY2xzLTIgewogICAgICAgIGZpbGw6ICNmMmYyZjM7CiAgICAgICAgZm9udC1mYW1pbHk6IE15cmlhZFByby1SZWd1bGFyLCAnTXlyaWFkIFBybyc7CiAgICAgICAgZm9udC1zaXplOiAyNXB4OwogICAgICB9CgogICAgICAuY2xzLTMgewogICAgICAgIGZpbGw6ICMxOTE5MTk7CiAgICAgIH0KICAgIDwvc3R5bGU+CiAgPC9kZWZzPgogIDxnPgogICAgPHJlY3QgY2xhc3M9ImNscy0zIiB4PSIuMTMiIHk9Ii4xMiIgd2lkdGg9IjQ5Ljc1IiBoZWlnaHQ9IjQ5Ljc1Ii8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im00OS43NS4yNXY0OS41SC4yNVYuMjVoNDkuNW0uMjUtLjI1SDB2NTBoNTBWMGgwWiIvPgogIDwvZz4KICA8dGV4dCBjbGFzcz0iY2xzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE4LjU5IDMyLjM0KSI+PHRzcGFuIHg9IjAiIHk9IjAiPjE8L3RzcGFuPjwvdGV4dD4KICA8Zz4KICAgIDxyZWN0IGNsYXNzPSJjbHMtMyIgeD0iNTAuMTIiIHk9Ii4xMyIgd2lkdGg9IjQ5Ljc1IiBoZWlnaHQ9IjQ5Ljc1Ii8+CiAgICA8cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Im05OS43NS4yNXY0OS41aC00OS41Vi4yNWg0OS41TTEwMCwwaC01MHY1MGg1MFYwaDBaIi8+CiAgPC9nPgogIDx0ZXh0IGNsYXNzPSJjbHMtMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNjguNTkgMzIuMzQpIj48dHNwYW4geD0iMCIgeT0iMCI+MjwvdHNwYW4+PC90ZXh0PgogIDxnPgogICAgPHJlY3QgY2xhc3M9ImNscy0zIiB4PSIuMTIiIHk9IjUwLjE5IiB3aWR0aD0iNDkuNzUiIGhlaWdodD0iNDkuNzUiLz4KICAgIDxwYXRoIGNsYXNzPSJjbHMtMSIgZD0ibTQ5Ljc1LDUwLjMxdjQ5LjVILjI1di00OS41aDQ5LjVtLjI1LS4yNUgwdjUwaDUwdi01MGgwWiIvPgogIDwvZz4KICA8dGV4dCBjbGFzcz0iY2xzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE4LjU5IDgyLjQpIj48dHNwYW4geD0iMCIgeT0iMCI+MzwvdHNwYW4+PC90ZXh0PgogIDxnPgogICAgPHJlY3QgY2xhc3M9ImNscy0zIiB4PSI1MC4xMiIgeT0iNTAuMTkiIHdpZHRoPSI0OS43NSIgaGVpZ2h0PSI0OS43NSIvPgogICAgPHBhdGggY2xhc3M9ImNscy0xIiBkPSJtOTkuNzUsNTAuMzF2NDkuNWgtNDkuNXYtNDkuNWg0OS41bS4yNS0uMjVoLTUwdjUwaDUwdi01MGgwWiIvPgogIDwvZz4KICA8dGV4dCBjbGFzcz0iY2xzLTIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDY4LjU5IDgyLjQpIj48dHNwYW4geD0iMCIgeT0iMCI+NDwvdHNwYW4+PC90ZXh0Pgo8L3N2Zz4=",
-      Position = {250,62},
-      Size = {100,100},
-    })]]
+      Image = Images.background,
+      Position = {5,5},
+      Size = {225,250}
+    })
   
+    --local y = ButtonYPosition()
     table.insert(graphics,{
       Type = "Text",
       Text = "Quad View",
-      Position = {10,42},
-      Size = {90,16},
+      Position = {TextXStart,ButtonYStart},
+      Size = TextBoxSize,
       FontSize = 14,
+      Color = TextFontColor,
       HTextAlign = "Right"
     })
     layout["QuadView"] = {
       PrettyName = "Buttons~Set Layout to Quad View",
-      Style = "Button",
-      Position = {105,42},
-      Size = {50,16},
+      Style = "Trigger",
+      Position = {ButtonXStart,ButtonYStart},
+      Size = ButtonSize,
       Color = {0,0,0}
     }
+    layout["QuadViewLed"] = {
+      PrettyName = "LED",
+      Style = "Led",
+      Position = {LedXStart,ButtonYStart+LedYOffset},
+      Size = LedSize,
+      Color = LedColor
+    }
   
+    local y = ButtonYPosition()
     table.insert(graphics,{
       Type = "Text",
       Text = "Input 1",
-      Position = {10,62},
-      Size = {90,16},
+      Position = {TextXStart,y},
+      Size = TextBoxSize,
       FontSize = 14,
+      Color = TextFontColor,
       HTextAlign = "Right"
     })
     layout["Input1"] = {
       PrettyName = "Buttons~Set Layout to Input 1",
-      Style = "Button",
-      Position = {105,62},
-      Size = {50,16},
+      Style = "Trigger",
+      Position = {ButtonXStart,y},
+      Size = ButtonSize,
       Color = {0,0,0}
     }
+    layout["Input1Led"] = {
+      PrettyName = "LED",
+      Style = "Led",
+      Position = {LedXStart,y+LedYOffset},
+      Size = LedSize,
+      Color = LedColor
+    }
   
+    local y = ButtonYPosition()
     table.insert(graphics,{
       Type = "Text",
       Text = "Input 2",
-      Position = {10,82},
-      Size = {90,16},
+      Position = {TextXStart,y},
+      Size = TextBoxSize,
       FontSize = 14,
+      Color = TextFontColor,
       HTextAlign = "Right"
     })
     layout["Input2"] = {
       PrettyName = "Buttons~Set Layout to Input 2",
-      Style = "Button",
-      Position = {105,82},
-      Size = {50,16},
+      Style = "Trigger",
+      Position = {ButtonXStart,y},
+      Size = ButtonSize,
       Color = {0,0,0}
     }
+    layout["Input2Led"] = {
+      PrettyName = "LED",
+      Style = "Led",
+      Position = {LedXStart,y+LedYOffset},
+      Size = LedSize,
+      Color = LedColor
+    }
   
+    local y = ButtonYPosition()
     table.insert(graphics,{
       Type = "Text",
       Text = "Input 3",
-      Position = {10,102},
-      Size = {90,16},
+      Position = {TextXStart,y},
+      Size = TextBoxSize,
       FontSize = 14,
+      Color = TextFontColor,
       HTextAlign = "Right"
     })
     layout["Input3"] = {
       PrettyName = "Buttons~Set Layout to Input 3",
-      Style = "Button",
-      Position = {105,102},
-      Size = {50,16},
+      Style = "Trigger",
+      Position = {ButtonXStart,y},
+      Size = ButtonSize,
       Color = {0,0,0}
     }
+    layout["Input3Led"] = {
+      PrettyName = "LED",
+      Style = "Led",
+      Position = {LedXStart,y+LedYOffset},
+      Size = LedSize,
+      Color = LedColor
+    }
   
+    local y = ButtonYPosition()
     table.insert(graphics,{
       Type = "Text",
       Text = "Input 4",
-      Position = {10,122},
-      Size = {90,16},
+      Position = {TextXStart,y},
+      Size = TextBoxSize,
       FontSize = 14,
+      Color = TextFontColor,
       HTextAlign = "Right"
     })
     layout["Input4"] = {
       PrettyName = "Buttons~Set Layout to Input 4",
-      Style = "Button",
-      Position = {105,122},
-      Size = {50,16},
+      Style = "Trigger",
+      Position = {ButtonXStart,y},
+      Size = ButtonSize,
       Color = {0,0,0}
     }
+    layout["Input4Led"] = {
+      PrettyName = "LED",
+      Style = "Led",
+      Position = {LedXStart,y+LedYOffset},
+      Size = LedSize,
+      Color = LedColor
+    }
   
+    layout['DeviceIp'] = {
+      Style = "Text",
+      Position = {125,232},
+      Size = {100,16},
+      Color = {0,0,0},
+      StrokeWidth = 1,
+      StrokeColor = {10,10,10}
+    }
   
+    --[[
+    local y = ButtonYPosition()
     table.insert(graphics,{
       Type = "Text",
       Text = "Get Info",
-      Position = {10,142},
-      Size = {90,16},
+      Position = {TextXStart,y},
+      Size = TextBoxSize,
       FontSize = 14,
+      Color = TextFontColor,
       HTextAlign = "Right"
     })
     layout["GetInfo"] = {
       PrettyName = "Buttons~Get Device Info",
-      Style = "Button",
-      Position = {105,142},
-      Size = {50,16},
+      Style = "Trigger",
+      Position = {ButtonXStart,y},
+      Size = ButtonSize,
       Color = {0,0,0}
     }
-  
+  ]]
   
   
   elseif CurrentPage == "Setup" then
@@ -474,47 +601,50 @@ function GetControlLayout(props)
     table.insert(graphics,{
       Type = "Text",
       Text = "Interface",
-      Position = {10,42},
+      Position = {TextXStart,42},
       Size = {90,16},
       FontSize = 14,
       HTextAlign = "Right"
     })
     layout['Interface'] = {
       Style = "ListBox",
-      Position = {105,42},
+      Position = {ButtonXStart,42},
       Size = {82,16},
       Color = {0,0,0},
     }
   
-    table.insert(graphics,{
+  end
+  --[[
+  table.insert(graphics,{
       Type = "Text",
       Text = "Device IP",
-      Position = {10,62},
+      Position = {TextXStart,62},
       Size = {90,16},
       FontSize = 14,
       HTextAlign = "Right"
     })
     layout['DeviceIp'] = {
       Style = "Text",
-      Position = {105,62},
+      Position = {ButtonXStart,62},
       Size = {82,16},
       Color = {0,0,0},
     }
     table.insert(graphics,{
       Type = "Text",
       Text = "Device Port",
-      Position = {10,82},
+      Position = {TextXStart,82},
       Size = {90,16},
       FontSize = 14,
       HTextAlign = "Right"
     })
     layout['DevicePort'] = {
       Style = "Text",
-      Position = {105,82},
+      Position = {ButtonXStart,82},
       Size = {82,16},
       Color = {0,0,0},
     }
   end
+  ]]
   return layout, graphics
 end
 
@@ -537,14 +667,17 @@ if Controls then
   
     for _, item in ipairs(ni) do
       print(item.Interface)
-      if(item.Interface == "LAN A" or item.Interface == "LAN B") then
-          if(item.Interface == Controls.Interface.String) then
+      print(item.Address)
+      if not string.find(item.Address,"169") then
+        if(item.Interface == "LAN A" or item.Interface == "LAN B") then
+            if(item.Interface == Controls.Interface.String) then
+              print("Returning Address: " .. item.Address)
+              return item.Address
+            end
+          else if(item.Interface == "Ethernet" or item.Interface == "Wi-Fi") then
             print("Returning Address: " .. item.Address)
             return item.Address
           end
-        else if(item.Interface == "Ethernet") then
-          print("Returning Address: " .. item.Address)
-          return item.Address
         end
       end
       --print("-"..item.Interface, " = \n IP ", item.Address,"\n MAC",item.MACAddress,"\n Broadcast",
@@ -651,6 +784,13 @@ if Controls then
     Port = tonumber(Controls.DevicePort.String)
   end
   
+  function FakeLedFeedback(pressed)
+    for k,v in pairs(Controls) do
+        Controls[k].Boolean = false
+    end
+    pressed.Boolean = true
+  end
+  
   Controls.DeviceIp.EventHandler = function()
     DeviceSetup()
   end
@@ -663,26 +803,31 @@ if Controls then
     local command = BuildCommand("output_layout",1)
     Send(command[1])
     print(command[2])
+    FakeLedFeedback(Controls.QuadViewLed)
   end
   Controls.Input1.EventHandler = function()
     local command = BuildCommand("output_layout",16)
     Send(command[1])
     print(command[2])
+    FakeLedFeedback(Controls.Input1Led)
   end
   Controls.Input2.EventHandler = function()
     local command = BuildCommand("output_layout",15)
     Send(command[1])
     print(command[2])
+    FakeLedFeedback(Controls.Input2Led)
   end
   Controls.Input3.EventHandler = function()
     local command = BuildCommand("output_layout",14)
     Send(command[1])
     print(command[2])
+    FakeLedFeedback(Controls.Input3Led)
   end
   Controls.Input4.EventHandler = function()
     local command = BuildCommand("output_layout",13)
     Send(command[1])
     print(command[2])
+    FakeLedFeedback(Controls.Input4Led)
   end
   
   Controls.GetInfo.EventHandler = function()

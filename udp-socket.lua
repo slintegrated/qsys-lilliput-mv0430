@@ -15,14 +15,17 @@ function GetIp()
 
   for _, item in ipairs(ni) do
     print(item.Interface)
-    if(item.Interface == "LAN A" or item.Interface == "LAN B") then
-        if(item.Interface == Controls.Interface.String) then
+    print(item.Address)
+    if not string.find(item.Address,"169") then
+      if(item.Interface == "LAN A" or item.Interface == "LAN B") then
+          if(item.Interface == Controls.Interface.String) then
+            print("Returning Address: " .. item.Address)
+            return item.Address
+          end
+        else if(item.Interface == "Ethernet" or item.Interface == "Wi-Fi") then
           print("Returning Address: " .. item.Address)
           return item.Address
         end
-      else if(item.Interface == "Ethernet") then
-        print("Returning Address: " .. item.Address)
-        return item.Address
       end
     end
     --print("-"..item.Interface, " = \n IP ", item.Address,"\n MAC",item.MACAddress,"\n Broadcast",

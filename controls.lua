@@ -72,3 +72,44 @@ table.insert(ctrls, {
   PinStyle = "Input",
   --Icon = "Power"
 })
+
+table.insert(ctrls,{
+  Name = "QuadViewLed",
+  ControlType = "Indicator",
+  IndicatorType = "Led",
+  UserPin = true,
+  PinStyle = "Output",
+  Count = 1
+})
+table.insert(ctrls,{
+  Name = "Input1Led",
+  ControlType = "Indicator",
+  IndicatorType = "Led",
+  UserPin = true,
+  PinStyle = "Output",
+  Count = 1
+})
+table.insert(ctrls,{
+  Name = "Input2Led",
+  ControlType = "Indicator",
+  IndicatorType = "Led",
+  UserPin = true,
+  PinStyle = "Output",
+  Count = 1
+})
+table.insert(ctrls,{
+  Name = "Input3Led",
+  ControlType = "Indicator",
+  IndicatorType = "Led",
+  UserPin = true,
+  PinStyle = "Output",
+  Count = 1
+})
+table.insert(ctrls,{
+  Name = "Input4Led",
+  ControlType = "Indicator",
+  IndicatorType = "Led",
+  UserPin = true,
+  PinStyle = "Output",
+  Count = 1
+})

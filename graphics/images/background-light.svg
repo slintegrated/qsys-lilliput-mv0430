@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 450 500">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-2 {
+        stroke: #e1ae54;
+      }
+
+      .cls-2, .cls-3 {
+        fill: none;
+        stroke-miterlimit: 10;
+        stroke-width: 3px;
+      }
+
+      .cls-4 {
+        fill: #6f8c76;
+      }
+
+      .cls-3 {
+        stroke: #6f8c76;
+      }
+
+      .cls-5 {
+        fill: #272525;
+        font-family: MyriadPro-Regular, 'Myriad Pro';
+        font-size: 25px;
+      }
+
+      .cls-6 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-7 {
+        fill: #e1ae55;
+      }
+    </style>
+  </defs>
+  <g id="BACKGROUND">
+    <g>
+      <polygon class="cls-7" points="3 497 3 3 394.24 3 48.44 497 3 497"/>
+      <path class="cls-4" d="m388.48,6L46.88,494H6V6h382.48m11.52-6H0v500h50L400,0h0Z"/>
+    </g>
+    <g>
+      <polygon class="cls-4" points="53.84 498 401.04 2 448 2 448 498 53.84 498"/>
+      <path class="cls-4" d="m446,4v492H57.68L402.08,4h43.92m4-4h-50L50,500h400V0h0Z"/>
+    </g>
+    <line class="cls-2" x1="83.36" y1="441.53" x2="450" y2="441.53"/>
+    <line class="cls-3" x1="1.56" y1="58.55" x2="357.56" y2="58.55"/>
+  </g>
+  <g id="TEXT">
+    <text class="cls-5" transform="translate(41.74 40.31)"><tspan x="0" y="0">MV0430 - OUTPUT L</tspan><tspan class="cls-1" x="208.45" y="0">A</tspan><tspan class="cls-6" x="221.77" y="0">Y</tspan><tspan x="234.4" y="0">OUT</tspan></text>
+    <text class="cls-5" transform="translate(85.8 479.02)"><tspan x="0" y="0">IP ADDRESS</tspan></text>
+  </g>
+</svg>

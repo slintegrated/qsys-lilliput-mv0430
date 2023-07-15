@@ -51,6 +51,8 @@ function GetControls(props)
   return ctrls
 end
 
+--[[ #include "images.lua" ]]
+
 --Layout of controls and graphics for the plugin UI to display
 function GetControlLayout(props)
   local layout = {}
