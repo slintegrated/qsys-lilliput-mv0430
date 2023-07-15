@@ -13,7 +13,7 @@ end
 
 -- The name that will initially display when dragged into a design
 function GetPrettyName(props)
-  return "Lilliput MV0430" --  .. PluginInfo.Version
+  return "Lilliput MV0430\n" .. PluginInfo.Version
 end
 
 -- Optional function used if plugin has multiple pages
