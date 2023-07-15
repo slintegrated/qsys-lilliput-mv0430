@@ -6,7 +6,7 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
 * See [lilliput commands](lilliput-commands.lua) and [Lilliput API](lilliput-api.pdf)
 
 ## Versions
-### 0.1
+### v0.1-alpha
 ![alt text][logo]
 
 [logo]: graphics/images/ui.png
