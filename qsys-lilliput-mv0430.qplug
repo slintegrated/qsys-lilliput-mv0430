@@ -6,7 +6,7 @@
 PluginInfo = {
   Name = "Lilliput MV0430",
   Version = "0.1",
-  BuildVersion = "0.1.0.60",
+  BuildVersion = "0.1.0.62",
   Id = "322cb95e-a012-430e-aefb-03f5b8f9b7db",
   Author = "Gage Helton",
   Description = "Plugin to control functionality of Lilliput MV0430 multiviewer"  
@@ -223,7 +223,8 @@ function GetPrettyName(props)
 end
 
 -- Optional function used if plugin has multiple pages
-PageNames = { "Control", "Setup" }  --List the pages within the plugin
+--PageNames = { "Control", "Setup" }  --List the pages within the plugin
+PageNames = {"Control"}
 function GetPages(props)
   local pages = {}
   for ix,name in ipairs(PageNames) do
@@ -567,7 +568,7 @@ function GetControlLayout(props)
       StrokeWidth = 1,
       StrokeColor = {10,10,10}
     }
-  
+  end
     --[[
     local y = ButtonYPosition()
     table.insert(graphics,{
@@ -586,7 +587,7 @@ function GetControlLayout(props)
       Size = ButtonSize,
       Color = {0,0,0}
     }
-  ]]
+  
   
   
   elseif CurrentPage == "Setup" then
@@ -666,8 +667,6 @@ if Controls then
     local ni = Network.Interfaces()
   
     for _, item in ipairs(ni) do
-      print(item.Interface)
-      print(item.Address)
       if not string.find(item.Address,"169") then
         if(item.Interface == "LAN A" or item.Interface == "LAN B") then
             if(item.Interface == Controls.Interface.String) then

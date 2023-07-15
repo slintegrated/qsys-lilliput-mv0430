@@ -14,8 +14,6 @@ function GetIp()
   local ni = Network.Interfaces()
 
   for _, item in ipairs(ni) do
-    print(item.Interface)
-    print(item.Address)
     if not string.find(item.Address,"169") then
       if(item.Interface == "LAN A" or item.Interface == "LAN B") then
           if(item.Interface == Controls.Interface.String) then

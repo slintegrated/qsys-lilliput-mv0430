@@ -167,7 +167,7 @@ if CurrentPage == "Control" then
     StrokeWidth = 1,
     StrokeColor = {10,10,10}
   }
-
+end
   --[[
   local y = ButtonYPosition()
   table.insert(graphics,{
@@ -186,7 +186,7 @@ if CurrentPage == "Control" then
     Size = ButtonSize,
     Color = {0,0,0}
   }
-]]
+
 
 
 elseif CurrentPage == "Setup" then
