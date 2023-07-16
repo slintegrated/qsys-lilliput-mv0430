@@ -167,6 +167,13 @@ if CurrentPage == "Control" then
     StrokeWidth = 1,
     StrokeColor = {10,10,10}
   }
+  layout["StatusLed"] = {
+    PrettyName = "QuadViewLed",
+    Style = "Led",
+    Position = {13,232},
+    Size = LedSize,
+    Color = {111,140,118}
+  }
 end
   --[[
   local y = ButtonYPosition()
@@ -188,15 +195,38 @@ end
   }
 
 
-
+]]
+--[[
 elseif CurrentPage == "Setup" then
   table.insert(graphics,{
     Type = "GroupBox",
     Fill = {200,200,200},
     StrokeWidth = 1,
     Position = {5,5},
-    Size = {200,500}
+    Size = {225,250}
   })
+
+
+  local y = ButtonYPosition()
+  table.insert(graphics,{
+    Type = "Text",
+    Text = "Get Info",
+    Position = {10,42},
+    Size = TextBoxSize,
+    FontSize = 14,
+    Color = TextFontColor,
+    HTextAlign = "Right"
+  })
+  layout["GetInfo"] = {
+    PrettyName = "Buttons~Get Device Info",
+    Style = "Trigger",
+    Position = {105,42},
+    Size = ButtonSize,
+    Color = {0,0,0}
+  }
+
+end
+
 
   table.insert(graphics,{
     Type = "Text",

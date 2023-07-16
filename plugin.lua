@@ -64,6 +64,7 @@ end
 
 --Start event based logic
 if Controls then
+  --[[ #include "lilliput-parse.lua" ]]
   --[[ #include "udp-socket.lua" ]]
   --[[ #include "runtime.lua" ]]
 end

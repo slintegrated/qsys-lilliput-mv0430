@@ -24,7 +24,7 @@ table.insert(ctrls, {
 table.insert(ctrls, { 
   Name = "QuadView",
   ControlType = "Button",
-  ButtonType = "Momentary",
+  ButtonType = "Trigger",
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
@@ -32,7 +32,7 @@ table.insert(ctrls, {
 table.insert(ctrls, { 
   Name = "Input1",
   ControlType = "Button",
-  ButtonType = "Momentary",
+  ButtonType = "Trigger",
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
@@ -40,7 +40,7 @@ table.insert(ctrls, {
 table.insert(ctrls, { 
   Name = "Input2",
   ControlType = "Button",
-  ButtonType = "Momentary",
+  ButtonType = "Trigger",
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
@@ -48,7 +48,7 @@ table.insert(ctrls, {
 table.insert(ctrls, { 
   Name = "Input3",
   ControlType = "Button",
-  ButtonType = "Momentary",
+  ButtonType = "Trigger",
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
@@ -56,7 +56,7 @@ table.insert(ctrls, {
 table.insert(ctrls, { 
   Name = "Input4",
   ControlType = "Button",
-  ButtonType = "Momentary",
+  ButtonType = "Trigger",
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
@@ -66,7 +66,7 @@ table.insert(ctrls, {
 table.insert(ctrls, { 
   Name = "GetInfo",
   ControlType = "Button",
-  ButtonType = "Momentary",
+  ButtonType = "Trigger",
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
@@ -107,6 +107,15 @@ table.insert(ctrls,{
 })
 table.insert(ctrls,{
   Name = "Input4Led",
+  ControlType = "Indicator",
+  IndicatorType = "Led",
+  UserPin = true,
+  PinStyle = "Output",
+  Count = 1
+})
+
+table.insert(ctrls,{
+  Name = "StatusLed",
   ControlType = "Indicator",
   IndicatorType = "Led",
   UserPin = true,

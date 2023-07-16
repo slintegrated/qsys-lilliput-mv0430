@@ -7,9 +7,9 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
 
 ## Versions
 ### v0.1-alpha
-![alt text][logo]
+![alt text][v01]
 
-[logo]: graphics/images/ui.png
+[v01]: graphics/images/v0.1.png
 
 * Features
   * Output layout functions
@@ -22,3 +22,20 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
   * No feedback parsing from MV0430 - indicators are fake feedback
   * No socket health data (connected/disconnected)
   * No communication health data (are commands getting responses?)
+
+### v0.2-alpha
+![alt text][v02]
+
+[v02]: graphics/images/v0.2.png
+
+* Features
+  * Output layout functions
+    * Quad View
+    * Input 1-4 Fullscreen
+    * Successful UDP communication
+    * REAL LED feedback - the button presses send the command and parse the response to find the actual output layout on the unit
+    * Status LED - gets set when first successful parse is processed
+* Known Issues
+  * Cannot select LAN interface from settings menu (default is LAN A)
+  * UI is suboptimal...
+  * No socket health data (connected/disconnected)

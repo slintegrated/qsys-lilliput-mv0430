@@ -111,9 +111,15 @@ end
 -- Parsers
 -- UDP Data event is called when data is received on the port, either targeted at the local address or from a multicast network.
 
-
 UDP.Data = function(socket, packet)
+  local data = string.tohex(packet.Data)
   print("Address: " .. packet.Address, "Port: " .. packet.Port, "Rx: " .. string.tohex(packet.Data))  -- Prints data on the UDP socket
+  if(string.find(data,"A56C0201A3FF01000000")) then
+    print("Parsing Data")
+    Controls.StatusLed.Boolean = true
+    Parse(data)
+
+  end
   -- Handle response data here
 end
 --Setup the UDP sockets to be used 
