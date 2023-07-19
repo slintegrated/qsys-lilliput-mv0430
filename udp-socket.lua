@@ -15,14 +15,14 @@ function GetIp()
 
   for _, item in ipairs(ni) do
     if not string.find(item.Address,"169") then
-      if(item.Interface == "LAN A" or item.Interface == "LAN B") then
-          if(item.Interface == Controls.Interface.String) then
+      if(item.Interface == Properties.Interface.String) then
+            print("Returning Address: " .. item.Address)
+            return item.Address
+        else if(System.IsEmulating) then
+          if(item.Interface == "Ethernet" or item.Interface == "Wi-Fi") then
             print("Returning Address: " .. item.Address)
             return item.Address
           end
-        else if(item.Interface == "Ethernet" or item.Interface == "Wi-Fi") then
-          print("Returning Address: " .. item.Address)
-          return item.Address
         end
       end
     end

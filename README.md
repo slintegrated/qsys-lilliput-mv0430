@@ -5,7 +5,22 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
 ## Command Structure
 * See [lilliput commands](lilliput-commands.lua) and [Lilliput API](lilliput-api.pdf)
 
+
 ## Versions
+### v1.0
+![alt text][v02]
+
+[v02]: graphics/images/v0.2.png
+
+* Features
+  * Output layout functions
+    * Quad View
+    * Input 1-4 Fullscreen
+    * Parsed LED feedback - the button presses send the command and parse the response to find the actual output layout on the unit
+    * Status LED - gets set when first successful parse is processed
+* Known Issues
+  * UI is suboptimal...
+
 ### v0.2-alpha
 ![alt text][v02]
 

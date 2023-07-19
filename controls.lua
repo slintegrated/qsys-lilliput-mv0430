@@ -11,15 +11,6 @@ table.insert(ctrls, {
   UserPin = false,
   DefaultValue = "7000"
 })
-table.insert(ctrls, {
-  Name = "Interface",
-  ControlType = "Text",
-  TextType = "List Box",
-  Count = 1,
-  UserPin = false,
-  DefaultValue = "LAN A",
-  Choices = {"LAN A","LAN B"}
-})
 
 table.insert(ctrls, { 
   Name = "QuadView",
