@@ -39,7 +39,7 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
   * No socket health data (connected/disconnected)
   
 ### [v0.1-alpha](https://github.com/slintegrated/qsys-lilliput-mv0430/releases/tag/v0.1-alpha)
-![alt text][v01]s
+![alt text][v01]
 
 [v01]: graphics/images/v0.1.png
 
