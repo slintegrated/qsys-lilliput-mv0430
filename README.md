@@ -7,7 +7,7 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
 
 
 ## Versions
-### v1.0
+### v1.0.0
 ![alt text][v02]
 
 [v02]: graphics/images/v0.2.png
