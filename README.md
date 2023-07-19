@@ -7,7 +7,7 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
 
 
 ## Versions
-### v1.0.0
+### [v1.0.0](https://github.com/slintegrated/qsys-lilliput-mv0430/releases/tag/v1.0.0)
 ![alt text][v02]
 
 [v02]: graphics/images/v0.2.png
@@ -21,7 +21,7 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
 * Known Issues
   * UI is suboptimal...
 
-### v0.2-alpha
+### [v0.2-alpha](https://github.com/slintegrated/qsys-lilliput-mv0430/releases/tag/v0.2-alpha)
 ![alt text][v02]
 
 [v02]: graphics/images/v0.2.png
@@ -38,7 +38,7 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
   * UI is suboptimal...
   * No socket health data (connected/disconnected)
   
-### v0.1-alpha
+### [v0.1-alpha](https://github.com/slintegrated/qsys-lilliput-mv0430/releases/tag/v0.1-alpha)
 ![alt text][v01]s
 
 [v01]: graphics/images/v0.1.png
