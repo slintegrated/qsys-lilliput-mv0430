@@ -6,7 +6,7 @@ This plugin gives UDP control of the [Lilliput / AV Matrix MV0430 Multiviewer](h
 * See [lilliput commands](lilliput-commands.lua) and [Lilliput API](lilliput-api.pdf)
 
 
-## Versions History
+## Version History
 ### [v1.0.0](https://github.com/slintegrated/qsys-lilliput-mv0430/releases/tag/v1.0.0)
 
 ![alt text][v02]
