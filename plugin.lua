@@ -1,6 +1,3 @@
--- Basic Framework Plugin
--- by QSC
--- October 2020
 
 -- Information block for the plugin
 --[[ #include "info.lua" ]]

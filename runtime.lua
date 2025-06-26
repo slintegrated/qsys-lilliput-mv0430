@@ -55,7 +55,12 @@ Controls.Input4.EventHandler = function()
   UpdateData()
   --FakeLedFeedback(Controls.Input4Led)
 end
-
+Controls.PIP.EventHandler = function()
+  local command = BuildCommand("output_layout",11)
+  Send(command[1])
+  print(command[2])
+  UpdateData()
+end
 Controls.GetInfo.EventHandler = function()
   local command = BuildCommand("reading_all_the_data",1)
   Send(command[1])

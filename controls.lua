@@ -51,7 +51,14 @@ table.insert(ctrls, {
   Count = 1,
   UserPin = true,
   PinStyle = "Input",
-  --Icon = "Power"
+})
+table.insert(ctrls, { 
+  Name = "PIP",
+  ControlType = "Button",
+  ButtonType = "Trigger",
+  Count = 1,
+  UserPin = true,
+  PinStyle = "Input",
 })
 
 table.insert(ctrls, { 
@@ -98,6 +105,14 @@ table.insert(ctrls,{
 })
 table.insert(ctrls,{
   Name = "Input4Led",
+  ControlType = "Indicator",
+  IndicatorType = "Led",
+  UserPin = true,
+  PinStyle = "Output",
+  Count = 1
+})
+table.insert(ctrls,{
+  Name = "PipLed",
   ControlType = "Indicator",
   IndicatorType = "Led",
   UserPin = true,

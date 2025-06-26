@@ -158,6 +158,30 @@ if CurrentPage == "Control" then
     Size = LedSize,
     Color = LedColor
   }
+    local y = ButtonYPosition()
+  table.insert(graphics,{
+    Type = "Text",
+    Text = "PIP",
+    Position = {TextXStart,y},
+    Size = TextBoxSize,
+    FontSize = 14,
+    Color = TextFontColor,
+    HTextAlign = "Right"
+  })
+  layout["PIP"] = {
+    PrettyName = "Buttons~Set Layout to PIP",
+    Style = "Trigger",
+    Position = {ButtonXStart,y},
+    Size = ButtonSize,
+    Color = {0,0,0}
+  }
+  layout["PipLed"] = {
+    PrettyName = "PIPLed",
+    Style = "Led",
+    Position = {LedXStart,y+LedYOffset},
+    Size = LedSize,
+    Color = LedColor
+  }
 
   layout['DeviceIp'] = {
     Style = "Text",

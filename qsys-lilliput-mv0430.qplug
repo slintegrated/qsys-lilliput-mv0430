@@ -1,12 +1,9 @@
--- Basic Framework Plugin
--- by QSC
--- October 2020
 
 -- Information block for the plugin
 PluginInfo = {
   Name = "Lilliput MV0430",
   Version = "1.0",
-  BuildVersion = "1.0.0.2",
+  BuildVersion = "1.1.0.0",
   Id = "322cb95e-a012-430e-aefb-03f5b8f9b7db",
   Author = "Gage Helton",
   Description = "Plugin to control functionality of Lilliput MV0430 multiviewer"  
@@ -327,7 +324,14 @@ function GetControls(props)
     Count = 1,
     UserPin = true,
     PinStyle = "Input",
-    --Icon = "Power"
+  })
+  table.insert(ctrls, { 
+    Name = "PIP",
+    ControlType = "Button",
+    ButtonType = "Trigger",
+    Count = 1,
+    UserPin = true,
+    PinStyle = "Input",
   })
   
   table.insert(ctrls, { 
@@ -374,6 +378,14 @@ function GetControls(props)
   })
   table.insert(ctrls,{
     Name = "Input4Led",
+    ControlType = "Indicator",
+    IndicatorType = "Led",
+    UserPin = true,
+    PinStyle = "Output",
+    Count = 1
+  })
+  table.insert(ctrls,{
+    Name = "PipLed",
     ControlType = "Indicator",
     IndicatorType = "Led",
     UserPin = true,
@@ -566,6 +578,30 @@ function GetControlLayout(props)
       Size = LedSize,
       Color = LedColor
     }
+      local y = ButtonYPosition()
+    table.insert(graphics,{
+      Type = "Text",
+      Text = "PIP",
+      Position = {TextXStart,y},
+      Size = TextBoxSize,
+      FontSize = 14,
+      Color = TextFontColor,
+      HTextAlign = "Right"
+    })
+    layout["PIP"] = {
+      PrettyName = "Buttons~Set Layout to PIP",
+      Style = "Trigger",
+      Position = {ButtonXStart,y},
+      Size = ButtonSize,
+      Color = {0,0,0}
+    }
+    layout["PipLed"] = {
+      PrettyName = "PIPLed",
+      Style = "Led",
+      Position = {LedXStart,y+LedYOffset},
+      Size = LedSize,
+      Color = LedColor
+    }
   
     layout['DeviceIp'] = {
       Style = "Text",
@@ -606,7 +642,8 @@ if Controls then
     [0x0c] = "Input4Led",
     [0x0d] = "Input3Led",
     [0x0e] = "Input2Led",
-    [0x0f] = "Input1Led"
+    [0x0f] = "Input1Led",
+    [0x0a] = "PipLed"
   }
   
   function SetFeedback(bytes)
@@ -840,7 +877,12 @@ if Controls then
     UpdateData()
     --FakeLedFeedback(Controls.Input4Led)
   end
-  
+  Controls.PIP.EventHandler = function()
+    local command = BuildCommand("output_layout",11)
+    Send(command[1])
+    print(command[2])
+    UpdateData()
+  end
   Controls.GetInfo.EventHandler = function()
     local command = BuildCommand("reading_all_the_data",1)
     Send(command[1])
