@@ -61,6 +61,12 @@ Controls.PIP.EventHandler = function()
   print(command[2])
   UpdateData()
 end
+Controls.SideBySide.EventHandler = function()
+  local command = BuildCommand("output_layout",12)
+  Send(command[1])
+  print(command[2])
+  UpdateData()
+end
 Controls.GetInfo.EventHandler = function()
   local command = BuildCommand("reading_all_the_data",1)
   Send(command[1])

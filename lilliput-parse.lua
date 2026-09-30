@@ -16,7 +16,8 @@ local output_layout_options = {
   [0x0d] = "Input3Led",
   [0x0e] = "Input2Led",
   [0x0f] = "Input1Led",
-  [0x0a] = "PipLed"
+  [0x0a] = "PipLed",
+  [0x0b] = "SideBySideLed"
 }
 
 function SetFeedback(bytes)

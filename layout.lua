@@ -25,13 +25,13 @@ if CurrentPage == "Control" then
     Fill = {200,200,200},
     StrokeWidth = 0,
     Position = {5,5},
-    Size = {225,250}
+    Size = {225,275}
   })
   table.insert(graphics,{
     Type = "Svg",
     Image = Images.background,
     Position = {5,5},
-    Size = {225,250}
+    Size = {225,275}
   })
 
   --local y = ButtonYPosition()
@@ -183,9 +183,34 @@ if CurrentPage == "Control" then
     Color = LedColor
   }
 
+  local y = ButtonYPosition()
+  table.insert(graphics,{
+    Type = "Text",
+    Text = "Side by Side",
+    Position = {TextXStart,y},
+    Size = TextBoxSize,
+    FontSize = 14,
+    Color = TextFontColor,
+    HTextAlign = "Right"
+  })
+  layout["SideBySide"] = {
+    PrettyName = "Buttons~Set Layout to Side by Side",
+    Style = "Trigger",
+    Position = {ButtonXStart,y},
+    Size = ButtonSize,
+    Color = {0,0,0}
+  }
+  layout["SideBySideLed"] = {
+    PrettyName = "SideBySideLed",
+    Style = "Led",
+    Position = {LedXStart,y+LedYOffset},
+    Size = LedSize,
+    Color = LedColor
+  }
+
   layout['DeviceIp'] = {
     Style = "Text",
-    Position = {125,232},
+    Position = {125,257},
     Size = {100,16},
     Color = {0,0,0},
     StrokeWidth = 1,
@@ -194,7 +219,7 @@ if CurrentPage == "Control" then
   layout["StatusLed"] = {
     PrettyName = "QuadViewLed",
     Style = "Led",
-    Position = {13,232},
+    Position = {13,257},
     Size = LedSize,
     Color = {111,140,118}
   }
