@@ -61,7 +61,15 @@ table.insert(ctrls, {
   PinStyle = "Input",
 })
 
-table.insert(ctrls, { 
+table.insert(ctrls, {
+  Name = "SideBySide",
+  ControlType = "Button",
+  ButtonType = "Trigger",
+  Count = 1,
+  UserPin = true,
+  PinStyle = "Input",
+})
+table.insert(ctrls, {
   Name = "GetInfo",
   ControlType = "Button",
   ButtonType = "Trigger",
@@ -113,6 +121,15 @@ table.insert(ctrls,{
 })
 table.insert(ctrls,{
   Name = "PipLed",
+  ControlType = "Indicator",
+  IndicatorType = "Led",
+  UserPin = true,
+  PinStyle = "Output",
+  Count = 1
+})
+
+table.insert(ctrls,{
+  Name = "SideBySideLed",
   ControlType = "Indicator",
   IndicatorType = "Led",
   UserPin = true,
