@@ -16,7 +16,9 @@
                 "options": {
                     "shell": {
                         "executable": "cmd.exe",
-                        "args": [ "/c"  ]
+                        "args": [
+                            "/c"
+                        ]
                     }
                 }
             },
@@ -24,7 +26,9 @@
                 "reveal": "always"
             },
             "problemMatcher": [],
-            "dependsOn": [ "--" ]
+            "dependsOn": [
+                "--"
+            ]
         },
         {
             "label": "--",
@@ -36,7 +40,9 @@
                 "options": {
                     "shell": {
                         "executable": "cmd.exe",
-                        "args": [ "/c"  ]
+                        "args": [
+                            "/c"
+                        ]
                     }
                 }
             },
@@ -44,7 +50,9 @@
                 "reveal": "always"
             },
             "problemMatcher": [],
-            "dependsOn": [ "-" ]
+            "dependsOn": [
+                "-"
+            ]
         },
         {
             "label": "-",
@@ -54,9 +62,14 @@
             "windows": {
                 "command": "sh .\\plugincompile\\compile_plugin.sh ${input:ver_inc}",
                 "options": {
+                    "env": {
+                        "PATH": "C:\\Program Files\\Git\\usr\\bin;${env:PATH}"
+                    },
                     "shell": {
                         "executable": "cmd.exe",
-                        "args": [ "/c"  ]
+                        "args": [
+                            "/c"
+                        ]
                     }
                 }
             },
@@ -64,7 +77,7 @@
                 "reveal": "always"
             },
             "problemMatcher": []
-        },
+        }
     ],
     "inputs": [
         {

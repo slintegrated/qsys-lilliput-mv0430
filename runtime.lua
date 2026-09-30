@@ -27,6 +27,12 @@ Controls.QuadView.EventHandler = function()
   UpdateData()
   --FakeLedFeedback(Controls.QuadViewLed)
 end
+Controls.SideBySide.EventHandler = function()
+  local command = BuildCommand("output_layout",12)
+  Send(command[1])
+  print(command[2])
+  UpdateData()
+end
 Controls.Input1.EventHandler = function()
   local command = BuildCommand("output_layout",16)
   Send(command[1])

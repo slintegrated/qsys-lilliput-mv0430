@@ -159,6 +159,31 @@ if CurrentPage == "Control" then
     Color = LedColor
   }
 
+  local y = ButtonYPosition()
+  table.insert(graphics,{
+    Type = "Text",
+    Text = "Side By Side",
+    Position = {TextXStart,y},
+    Size = TextBoxSize,
+    FontSize = 14,
+    Color = TextFontColor,
+    HTextAlign = "Right"
+  })
+  layout["SideBySide"] = {
+    PrettyName = "Buttons~Set Layout to SideBySide",
+    Style = "Trigger",
+    Position = {ButtonXStart,y},
+    Size = ButtonSize,
+    Color = {0,0,0}
+  }
+  layout["SideBySideLed"] = {
+    PrettyName = "SideBySideLed",
+    Style = "Led",
+    Position = {LedXStart,y+LedYOffset},
+    Size = LedSize,
+    Color = LedColor
+  }
+
   layout['DeviceIp'] = {
     Style = "Text",
     Position = {125,232},
